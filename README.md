@@ -2,7 +2,7 @@
 
 All of the schemata!
 
-Tonic goes well with a healthy dose of [https://github.com/cgore/gin](gin).
+Tonic goes well with a healthy dose of [gin](https://github.com/cgore/gin).
 
 [![Clojars Project](http://clojars.org/tonic/latest-version.svg)](http://clojars.org/tonic)
 
