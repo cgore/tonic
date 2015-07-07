@@ -2,6 +2,8 @@
 
 All of the schemata!
 
+Tonic goes well with a healthy dose of [https://github.com/cgore/gin](gin).
+
 [![Clojars Project](http://clojars.org/tonic/latest-version.svg)](http://clojars.org/tonic)
 
 [![Build Status](https://travis-ci.org/cgore/tonic.svg?branch=master)](https://travis-ci.org/cgore/tonic)
