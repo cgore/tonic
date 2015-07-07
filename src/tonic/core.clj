@@ -1,6 +1,6 @@
-(ns tonic.core)
+(ns tonic.core
+  (:require [schema.core :as s :refer [defschema]]))
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+;;; You can use `Double` as a schema already.
+
+;;; You can use `Float` as a schema already.
