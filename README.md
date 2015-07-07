@@ -8,6 +8,8 @@ Tonic goes well with a healthy dose of [gin](https://github.com/cgore/gin).
 
 [![Build Status](https://travis-ci.org/cgore/tonic.svg?branch=master)](https://travis-ci.org/cgore/tonic)
 
+[![Dependencies Status](http://jarkeeper.com/cgore/tonic/status.png)](http://jarkeeper.com/cgore/tonic)
+
 ## Usage
 
 ### `tonic.char`
