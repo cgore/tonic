@@ -102,6 +102,19 @@ You can validate hex digits irrespective of upper/lower case.
 
 ### `tonic.core`
 
+### `tonic.string`
+
+You can validate for non-empty strings.
+
+```clojure
+(s/check NonEmptyString "foo")
+;; => nil
+(s/check NonEmptyString "")
+;; => (not (:non-empty-string ""))
+(s/check NonEmptyString :foo)
+;; => (not (instance? java.lang.String :foo))
+```
+
 ## License
 
 Copyright © 2015 Christopher Mark Gore, Soli Deo Gloria, all rights reserved.

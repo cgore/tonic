@@ -1,4 +1,4 @@
-(defproject tonic "0.1.0"
+(defproject tonic "0.2.0"
   :description "All of the schemata (\"schemas\") you need and/or want."
   :url "https://github.com/cgore/tonic"
   :license {:name "Eclipse Public License"
