@@ -13,3 +13,8 @@
   (is (valid? NonEmptyString "foo"))
   (is (invalid? NonEmptyString ""))
   (is (invalid? NonEmptyString :foo)))
+
+(deftest re-matches-test
+  (is (valid? (re-matches #"[a-z]+") "foo"))
+  (is (invalid? (re-matches #"[a-z]+") "foo123"))
+  (is (invalid? (re-matches #"[a-z]+") :foo)))
