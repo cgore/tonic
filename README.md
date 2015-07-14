@@ -115,6 +115,16 @@ You can validate for non-empty strings.
 ;; => (not (instance? java.lang.String :foo))
 ```
 
+You can validate for a string matching a specific regular expression.
+You can also provide an optional name for the matched regular expression.
+
+```clojure
+(s/check (re-matches #"[a-z]+") "foo")
+;; => nil
+(s/check (re-matches #"[a-z]+" :lowercase) "foo123")
+;; => (not (:lowercase "foo123"))
+```
+
 ## License
 
 Copyright © 2015 Christopher Mark Gore, Soli Deo Gloria, all rights reserved.
