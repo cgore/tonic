@@ -4,6 +4,11 @@
 
 ;;; You can use `String` as a schema already.
 
+(defschema EmptyString
+  "Matches the empty string."
+  (s/both String
+          (s/pred empty? :empty-string)))
+
 (defschema NonEmptyString
   "Matches any non-empty string, that is, excluding \"\"."
   (s/both String

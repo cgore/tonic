@@ -1,4 +1,5 @@
 (ns tonic.string-test
+  (:refer-clojure :exclude [re-matches])
   (:require [clojure.test :refer :all]
             [tonic.string :refer :all]
             [schema.core :as s]))
@@ -8,6 +9,11 @@
 
 (defn invalid? [schema thing]
   (not (valid? schema thing)))
+
+(deftest empty-string-test
+  (is (valid? EmptyString ""))
+  (is (invalid? EmptyString "foo"))
+  (is (invalid? EmptyString nil)))
 
 (deftest non-empty-string-test
   (is (valid? NonEmptyString "foo"))
