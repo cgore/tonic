@@ -2,6 +2,8 @@
 
 All of the schemata!
 
+Tonic is a library of generally useful schemata using [Prismatic Schema](https://github.com/Prismatic/schema).
+
 Tonic goes well with a healthy dose of [gin](https://github.com/cgore/gin).
 
 [![Clojars Project](http://clojars.org/tonic/latest-version.svg)](http://clojars.org/tonic)
