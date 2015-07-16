@@ -1,13 +1,8 @@
 (ns tonic.char-test
   (:require [clojure.test :refer :all]
+            [tonic.test-utils :refer :all]
             [tonic.char :refer :all]
             [schema.core :as s]))
-
-(defn valid? [schema thing]
-  (nil? (s/check schema thing)))
-
-(defn invalid? [schema thing]
-  (not (valid? schema thing)))
 
 (deftest alpha-lower-test
   (is (valid? AlphaLower \a))

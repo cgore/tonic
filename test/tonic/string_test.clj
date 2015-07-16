@@ -1,14 +1,9 @@
 (ns tonic.string-test
   (:refer-clojure :exclude [re-matches])
   (:require [clojure.test :refer :all]
+            [tonic.test-utils :refer :all]
             [tonic.string :refer :all]
             [schema.core :as s]))
-
-(defn valid? [schema thing]
-  (nil? (s/check schema thing)))
-
-(defn invalid? [schema thing]
-  (not (valid? schema thing)))
 
 (deftest empty-string-test
   (is (valid? EmptyString ""))
