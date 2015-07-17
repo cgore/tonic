@@ -104,6 +104,31 @@ You can validate hex digits irrespective of upper/lower case.
 
 ### `tonic.core`
 
+### `tonic.internet`
+
+You can validate MAC addresses. It's important to realize that there are
+actually three common formats for displaying MAC addresses, although the most
+common by far is the colon-separated variant.
+
+```clojure
+(s/check MacAddressColons "a1:b2:c3:d4:e5:f6")
+;; => nil
+(s/check MacAddressHyphens "a1-b2-c3-d4-e5-f6")
+;; => nil
+(s/check MacAddressPeriods "a1b2.c3d4.e5f6")
+;; => nil
+(s/check MacAddress "a1:b2:c3:d4:e5:f6")
+;; => nil
+(s/check MacAddress "a1-b2-c3-d4-e5-f6")
+;; => nil
+(s/check MacAddress "a1b2.c3d4.e5f6")
+;; => nil
+(s/check MacAddress "a1:b2:c3:d4:e5")
+;; => (named (not (some (check % "a1:b2:c3:d4:e5") schemas)) :mac-address)
+(s/check MacAddress "a1:b2:c3:d4:e5:f6:f6")
+;; => (named (not (some (check % a-java.lang.String) schemas)) :mac-address)
+```
+
 ### `tonic.string`
 
 You can validate for empty or non-empty strings.
