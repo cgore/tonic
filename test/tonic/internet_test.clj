@@ -34,3 +34,11 @@
   (is   (valid? MacAddress "a1b2.c3d4.e5f6"))
   (is (invalid? MacAddress "nope"))
   (is (invalid? MacAddress 0x1234)))
+
+(deftest ipv4-address-test
+  (is   (valid? IPv4Address "0.0.0.0"))
+  (is   (valid? IPv4Address "255.255.255.255"))
+  (is (invalid? IPv4Address "0.0.0.0.0"))
+  (is (invalid? IPv4Address "0.0.0"))
+  (is (invalid? IPv4Address "nope"))
+  (is (invalid? IPv4Address 0xdeadbeef)))

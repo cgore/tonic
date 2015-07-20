@@ -106,6 +106,15 @@ You can validate hex digits irrespective of upper/lower case.
 
 ### `tonic.internet`
 
+You can validate IP addresses (IPv4 specifically.)
+
+```clojure
+(s/check IPv4Address "192.168.1.1")
+;; => nil
+(s/check IPv4Address "192.168.1.256")
+;; => (not (:ipv4-address "192.168.1.256"))
+```
+
 You can validate MAC addresses. It's important to realize that there are
 actually three common formats for displaying MAC addresses, although the most
 common by far is the colon-separated variant.
