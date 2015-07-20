@@ -40,5 +40,6 @@
   (is   (valid? IPv4Address "255.255.255.255"))
   (is (invalid? IPv4Address "0.0.0.0.0"))
   (is (invalid? IPv4Address "0.0.0"))
+  (is (invalid? IPv4Address "192.168.1.256"))
   (is (invalid? IPv4Address "nope"))
   (is (invalid? IPv4Address 0xdeadbeef)))
