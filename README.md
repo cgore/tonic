@@ -104,6 +104,19 @@ You can validate hex digits irrespective of upper/lower case.
 
 ### `tonic.core`
 
+You can validate integral numbers.
+
+```clojure
+(s/check IntegralNumber 12)
+;; => nil
+(s/check IntegralNumber (long 12))
+;; => nil
+(s/check IntegralNumber (bigint 12))
+;; => nil
+(s/check IntegralNumber 12.34)
+;; => (named (not (some (check % 12.34) schemas)) :integral-number)
+```
+
 ### `tonic.internet`
 
 You can validate IP addresses (IPv4 specifically.)
