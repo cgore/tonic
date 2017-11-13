@@ -19,3 +19,15 @@
   (is (valid? (re-matches #"[a-z]+") "foo"))
   (is (invalid? (re-matches #"[a-z]+") "foo123"))
   (is (invalid? (re-matches #"[a-z]+") :foo)))
+
+(comment ; How to get UUIDs:
+  (str (java.util.UUID/randomUUID)))
+
+(deftest lowercase-uuid-regex-test
+  (is (valid? LowercaseUUID "c9254dc7-6626-4f94-ab80-9cf43d6666c2"))
+  (testing "no uppercase"
+    (is (invalid? LowercaseUUID "c9254dc7-6626-4F94-ab80-9cf43d6666c2")))
+  (testing "too few in first chunk"
+    (is (invalid? LowercaseUUID "c9254dc-6626-4f94-ab80-9cf43d6666c2")))
+  (testing "invalid in last chunk"
+    (is (invalid? LowercaseUUID "c9254dc7-6626-4f94-ab80-9cf43d6666Z2"))))

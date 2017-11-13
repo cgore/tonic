@@ -22,3 +22,10 @@
   ([re re-name]
    (s/both String
            (s/pred #(clojure.core/re-matches re %) re-name))))
+
+(def lowercase-uuid-regex
+  #"[a-f\d]{8}(-[a-f\d]{4}){3}-[a-f\d]{12}")
+
+(defschema LowercaseUUID
+  "This is a UUID in lowercase string representation."
+  (re-matches lowercase-uuid-regex :lowercase-uuid))
