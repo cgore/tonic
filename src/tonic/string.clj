@@ -17,7 +17,8 @@
 (defn re-matches
   "Matches any string that matches the regular expression provided."
   ([re]
-   (re-matches re ""))
+   (s/both String
+           (s/pred #(clojure.core/re-matches re %))))
   ([re re-name]
    (s/both String
            (s/pred #(clojure.core/re-matches re %) re-name))))
