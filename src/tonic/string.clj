@@ -36,3 +36,8 @@
 (defschema UppercaseUUID
   "This is a UUID in uppercase string representation."
   (re-matches uppercase-uuid-regex :uppercase-uuid))
+
+(defschema StringUUID
+  "This is a UUID in either uppercase or lowercase representation.  Mixed case
+  is disallowed and is probably a bad idea if you ever run into it."
+  (s/either LowercaseUUID UppercaseUUID))

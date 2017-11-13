@@ -23,7 +23,7 @@
 (comment ; How to get UUIDs:
   (str (java.util.UUID/randomUUID)))
 
-(deftest lowercase-uuid-regex-test
+(deftest lowercase-uuid-test
   (is (valid? LowercaseUUID "c9254dc7-6626-4f94-ab80-9cf43d6666c2"))
   (testing "no uppercase"
     (is (invalid? LowercaseUUID "c9254dc7-6626-4F94-ab80-9cf43d6666c2")))
@@ -32,7 +32,7 @@
   (testing "invalid in last chunk"
     (is (invalid? LowercaseUUID "c9254dc7-6626-4f94-ab80-9cf43d6666z2"))))
 
-(deftest uppercase-uuid-regex-test
+(deftest uppercase-uuid-test
   (is (valid? UppercaseUUID "C9254DC7-6626-4F94-AB80-9CF43D6666C2"))
   (testing "no lowercase"
     (is (invalid? UppercaseUUID "C9254DC7-6626-4f94-AB80-9CF43D6666C2")))
@@ -40,3 +40,11 @@
     (is (invalid? UppercaseUUID "C9254DC-6626-4F94-AB80-9CF43D6666C2")))
   (testing "invalid in last chunk"
     (is (invalid? UppercaseUUID "C9254DC7-6626-4F94-AB80-9CF43D6666Z2"))))
+
+(deftest string-uuid-test
+  (testing "lowercase is okay"
+    (is (valid? StringUUID "c9254dc7-6626-4f94-ab80-9cf43d6666c2")))
+  (testing "uppercase is okay"
+    (is (valid? StringUUID "C9254DC7-6626-4F94-AB80-9CF43D6666C2")))
+  (testing "mixed case is bad"
+    (is (invalid? StringUUID "c9254dC7-6626-4F94-ab80-9cf43d6666c2"))))
