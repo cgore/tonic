@@ -26,6 +26,13 @@
 (def lowercase-uuid-regex
   #"[a-f\d]{8}(-[a-f\d]{4}){3}-[a-f\d]{12}")
 
+(def uppercase-uuid-regex
+  #"[A-F\d]{8}(-[A-F\d]{4}){3}-[A-F\d]{12}")
+
 (defschema LowercaseUUID
   "This is a UUID in lowercase string representation."
   (re-matches lowercase-uuid-regex :lowercase-uuid))
+
+(defschema UppercaseUUID
+  "This is a UUID in uppercase string representation."
+  (re-matches uppercase-uuid-regex :uppercase-uuid))

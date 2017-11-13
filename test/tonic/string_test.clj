@@ -30,4 +30,13 @@
   (testing "too few in first chunk"
     (is (invalid? LowercaseUUID "c9254dc-6626-4f94-ab80-9cf43d6666c2")))
   (testing "invalid in last chunk"
-    (is (invalid? LowercaseUUID "c9254dc7-6626-4f94-ab80-9cf43d6666Z2"))))
+    (is (invalid? LowercaseUUID "c9254dc7-6626-4f94-ab80-9cf43d6666z2"))))
+
+(deftest uppercase-uuid-regex-test
+  (is (valid? UppercaseUUID "C9254DC7-6626-4F94-AB80-9CF43D6666C2"))
+  (testing "no lowercase"
+    (is (invalid? UppercaseUUID "C9254DC7-6626-4f94-AB80-9CF43D6666C2")))
+  (testing "too few in first chunk"
+    (is (invalid? UppercaseUUID "C9254DC-6626-4F94-AB80-9CF43D6666C2")))
+  (testing "invalid in last chunk"
+    (is (invalid? UppercaseUUID "C9254DC7-6626-4F94-AB80-9CF43D6666Z2"))))
