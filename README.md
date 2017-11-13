@@ -174,9 +174,30 @@ You can also provide an optional name for the matched regular expression.
 ;; => (not (:lowercase "foo123"))
 ```
 
+You can validate UUID strings.  Usually these are all-lowercase, sometimes they
+are all uppercase (depending on your system.)  Mixed case is almost always
+wrong.
+
+```clojure
+(s/check LowercaseUUID (str (java.util.UUID/randomUUID)))
+;; => nil
+(s/check LowercaseUUID "c9254dc7-6626-4f94-ab80-9cf43d6666c2")
+;; => nil
+(s/check UppercaseUUID "C9254DC7-6626-4F94-AB80-9CF43D6666C2")
+;; => nil
+(s/check StringUUID "c9254dc7-6626-4f94-ab80-9cf43d6666c2")
+;; => nil
+(s/check StringUUID "C9254DC7-6626-4F94-AB80-9CF43D6666C2")
+;; => nil
+(s/check StringUUID "I'm not a UUID")
+;; => (not (some-matching-either-clause? "I'm not a UUID"))
+tonic.string> (s/check StringUUID (java.util.UUID/randomUUID)) ; UUID, but not a string.
+;; => (not (some-matching-either-clause? a-java.util.UUID))
+```
+
 ## License
 
-Copyright © 2015 Christopher Mark Gore, Soli Deo Gloria, all rights reserved.
+Copyright © 2015-2017 Christopher Mark Gore, Soli Deo Gloria, all rights reserved.
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
