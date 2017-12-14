@@ -19,7 +19,7 @@
   #"[0-9]{4}-[0-9]{2}-[0-9]{2}")
 
 (defschema CalendarDate
-  (tstr/re-matches year-regex :iso8601-calendar-date))
+  (tstr/re-matches calendar-date-regex :iso8601-calendar-date))
 
 (def time-regex
   #"[0-9]{2}:[0-9]{2}(:[0-9]{2}(\.[0-9]+)?)?")
